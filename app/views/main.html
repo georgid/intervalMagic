@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.4.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="http://w.soundcloud.com/player/api.js"> </script>
+        
+        <script>
+function myFunction(matchesTs, matchesEndTs, iterNumber, whichSong)
+{
+
+        // 
+       
+      // console.log("number of objects : " +  Object.keys(thething).length);
+       // console.log( "country:" +  thething[1].country);
+       // console.log( "country:" +  thething[2].city);
+
+         
+        //   console.log( "songName: " +  songName);
+
+         console.log( "timeSt: " +  matchesTs);
+        console.log( "timeEndSt: " +  matchesEndTs);
+
+
+
+    var foo = document.getElementById("resultBar" + whichSong); 
+    
+  // append label 
+    var elementText = document.createElement("text");
+    elementText.setAttribute("value", "Result " + iterNumber);
+    foo.appendChild(elementText);
+
+    var newlabel = document.createElement("label");
+resultNum = iterNumber + 1;
+var labelID = "matched part: " + resultNum;
+
+newlabel.setAttribute("for",labelID);
+
+newlabel.innerHTML = labelID;
+foo.appendChild(newlabel);
+
+    
+    //append play button
+    var element = document.createElement("input");
+ 
+    //Assign different attributes to the element.
+    element.setAttribute("type", "button");
+    var buttonID = "playResult" + "_" + whichSong + "_" + iterNumber;
+    element.setAttribute("id", buttonID);
+
+    // element.setAttribute("name", "playResult" + iterNumber);
+    element.setAttribute("value", "play" );
+ 
+    
+   //Append the element in page (in span).
+    foo.appendChild(element);
+
+    // append new line
+    var br = document.createElement("br");
+    foo.appendChild(br);
+
+  //--------------------------------------------------------------------
+
+    var playName =  "#" + buttonID;
+    console.log(" playName : "  + playName);
+
+        //console.log($('#play'));
+    var widgetName = 'widgetSC' + whichSong;
+        console.log(" playName : "  + widgetName);
+
+
+    var widget = SC.Widget(document.getElementById(widgetName));
+      widget.bind(SC.Widget.Events.READY, function() {
+        
+        $(playName).click(function() {
+          widget.seekTo(matchesTs);
+         // console.log(${resultTs1});
+          widget.play();
+          // here pause with matchesEndTs
+        });
+      });
+
+
+   
+
+}; 
+
+
+  
+
+
+</script>
+
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+        #{doLayout /}
+    </body>
+</html>

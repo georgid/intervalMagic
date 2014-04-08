@@ -1,0 +1,103 @@
+#{extends 'main.html' /}
+#{set title:'Results' /}
+
+
+
+<!-- <audio controls>
+  <source src="amaury_1_slow1.wav" type="audio/wav">
+
+<p>Your browser does not support the audio element.</p>
+</audio> -->
+ 
+  
+<h1> matched songs </h1>
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/7241829" id="widgetSC0"></iframe>
+    
+	<span id="resultBar0">&nbsp;</span>
+
+    <script>
+    	
+    
+       var thething = ${myJsonVar.raw()};
+       
+      // console.log("number of objects : " +  Object.keys(thething).length);
+       // console.log( "country:" +  thething[1].country);
+       // console.log( "country:" +  thething[2].city);
+
+      	
+      	var whichSong = 0;
+
+     	var songName = thething[whichSong].songName;
+     	 console.log( "songName: " +  songName);
+
+     	 var matches = thething[whichSong].matches;
+
+		for (var i = 0, len = Object.keys(matches).length; i < len; ++i) {
+    	 // console.log( "timeSt: " +  matches[i].startTs);
+
+    	 myFunction( matches[i].startTs, matches[i].endTs, i, whichSong);
+
+ }
+
+ 		if (len == 0){
+ 		$('#widgetSC0').hide();
+
+ 		}
+
+
+
+
+
+ 		// ____________________ repeat for second widget: 
+
+
+ 		
+
+
+
+      //var thething = JSON.parse(${myJsonVar});
+      // console.log(thething);
+	//console.log(${myJsonVar});
+
+
+	    
+    </script>
+
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/94850070" id="widgetSC1"></iframe>
+ 
+ 	<span id="resultBar1">&nbsp;</span>
+
+ <script>
+
+
+ // $(function() {
+ //        $('#content-nav').append('<hr />');
+ //        });
+
+ //    var hr = document.createElement("hr");
+ //    foo.appendChild(hr);
+
+
+var whichSong = 1;
+
+     	var songName = thething[whichSong].songName;
+     	 console.log( "songName: " +  songName);
+
+     	 var matches = thething[whichSong].matches;
+
+		for (var i = 0, len = Object.keys(matches).length; i < len; ++i) {
+    	 // console.log( "timeSt: " +  matches[i].startTs);
+
+    	 myFunction( matches[i].startTs, matches[i].endTs, i, whichSong);
+
+ }
+
+ 		if (len == 0){
+ 		$('#widgetSC1').hide();
+ 		}
+ </script>
+ 
+
+

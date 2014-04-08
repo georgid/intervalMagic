@@ -1,0 +1,18 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<form action="@{Application.searchIntervals()}" method="GET">
+    
+    <h1>Enter Intervals:</h1>
+    <hr>
+    
+    <input type="text" name="myName" />
+    <p><i> semitones</i></p>
+    
+    <br>
+    <input type="text"  name="myName2" />
+        <p><i> semitones</i></p>
+
+     
+    <input type="submit" value="run magic!" />
+</form> 

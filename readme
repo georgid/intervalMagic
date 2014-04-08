@@ -1,0 +1,17 @@
+
+Get started with intervalMagic: 
+
+
+- Install playframework 1.1.1: 
+http://www.playframework.com/
+
+	more details on a first app here: 
+	documentation/1.1.1/firstapp
+
+-> play new intervalMagic
+-> cd intervalMagic
+-> git clone https://github.com/georgid/intervalMagic.git
+(make sure that the default folders: app conf and lib  are overwritten with the ones of intervalMagic)
+
+-> play run intervalMagic
+
